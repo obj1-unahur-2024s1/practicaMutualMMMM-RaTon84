@@ -1,0 +1,9 @@
+
+test "testX" {
+	/*const ec = new ExcursionACiudad(cantidadDeAtracciones=4)
+	ec.diasDeActividad()
+	2
+	ec.sirveParaBroncearse() */
+	assert.that(true)
+
+}
