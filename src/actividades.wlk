@@ -1,5 +1,5 @@
 class Actividad{
-	const idiomas = [] //strings
+	const property idiomas = [] //strings
 	
 	/*method initialize(){
 		if(idiomas.isEmpty()){
@@ -12,8 +12,15 @@ class Actividad{
 	method sirveParaBroncearse()
 	method implicaEsfuerzo()	
 	method diasDeActividad()
+	
 	method esInteresante(){
 		return idiomas.size()>1
+	}
+	
+	method esRecomendadaPara(socio){
+		return self.esInteresante() 
+			&& socio.leAtrae(self) 
+			&& !socio.actividades().contains(self)
 	}
 }
 
@@ -94,10 +101,41 @@ class ClasesDeGimnasia inherits Actividad{
 	override method sirveParaBroncearse(){
 		return false
 	}
+	override method esRecomendadaPara(socio){
+		return socio.edad()>=20 && socio.edad()<=30
+	}
 }
 
+class TallerLiterario inherits Actividad{
+	const libros = []
+	
+	override method idiomas(){
+		return libros.map({l=>l.idioma()}).asSet().asList()
+	}
+	
+	override method diasDeActividad(){
+		return libros.size()+1
+	}
+	
+	override method implicaEsfuerzo(){
+		return libros.any({l=>l.cantidadDePaginas()>500}) 
+			|| (libros.all({l=>l.nombreAutor()==libros.fisrt().nombreAutor()}))
+	}
+	
+	override method sirveParaBroncearse(){
+		return false
+	}
+	
+	override method esRecomendadaPara(socio){
+		return socio.idiomas().size()>1
+	}
+}
 
-
+class Libro{
+	const property idioma
+	const property cantidadDePaginas
+	const property nombreAutor
+}
 
 /* 
 class ViajesInteresantes inherits Viajes{

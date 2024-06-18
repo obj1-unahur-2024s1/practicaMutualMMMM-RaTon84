@@ -1,10 +1,10 @@
 import actividades.*
 
 class Socio{
-	const actividades=[]
+	const property actividades=[]
 	const maximoDeActividades
-	const edad
-	const idiomas
+	var property edad
+	const property idiomas
 	
 	method esAdoradorDelSol(){
 		return actividades.all({a=>a.sirveParaBroncearse()})
@@ -32,7 +32,20 @@ class SocioTranquilo inherits Socio{
 
 class SocioCoherente inherits Socio{
 	override method leAtrae(actividad){
-	return (self.esAdoradorDelSol() && actividad.sirveParaBroncearse()) || actividad.implicaEsfuerzo() 
-	
+	return (self.esAdoradorDelSol() && actividad.sirveParaBroncearse()) 
+		|| actividad.implicaEsfuerzo()	
 	}
 }
+
+class SocioRelajado inherits Socio{
+	override method leAtrae(actividad){
+		return idiomas.any({i=>actividad.idiomas().contains(i)})
+	}
+}
+
+
+
+
+
+
+
