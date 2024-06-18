@@ -136,18 +136,3 @@ class Libro{
 	const property cantidadDePaginas
 	const property nombreAutor
 }
-
-/* 
-class ViajesInteresantes inherits Viajes{
-	
-	override method diasDeActividad(){
-		return 1
-	}
-	
-	override method implicaEsfuerzo(){
-		return 1
-	}
-	override method sirveParaBroncearse(){
-		return 1
-	}
-}*/
