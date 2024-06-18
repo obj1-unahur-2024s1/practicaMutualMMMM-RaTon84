@@ -1,6 +1,18 @@
 /** First Wollok example */
-object wollok {
-	method howAreYou() {
-		return 'I am Wolloktastic!'
-	}
+class Actividades{
+	
+}
+
+object mutualMentes{
+	
+} 
+object musculos{
+	
+}
+object maletasEnMovimiento{
+	
+}
+
+class Viajes{
+	
 }
